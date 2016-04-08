@@ -35,13 +35,6 @@ public class ValuutaCalc extends Application {
         TextField convertedUnit = new TextField("0.0");
         grid.add(convertedUnit, 2, 2);
 
-        //drop-down menüü
-        ChoiceBox units = new ChoiceBox(ObservableList<String>
-                "GBP",
-                "RUB",
-                "USD");
-
-
         Scene scene = new Scene(grid);
 
     }
