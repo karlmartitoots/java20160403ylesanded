@@ -1,11 +1,12 @@
 import javafx.application.Application;
 import javafx.collections.FXCollections;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,38 +16,48 @@ public class ValuutaCalc extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        GridPane grid = new GridPane();
-        grid.setVgap(10);
-        grid.setHgap(10);
-        grid.setPadding(new Insets(5, 5, 5, 5));
-        grid.add(new Label("EUR"), 1, 1);
-        TextField euros = new TextField("0.0");
-        grid.add(euros, 2, 1);
-        ChoiceBox<String> cb = new ChoiceBox<>(FXCollections.observableArrayList(
+        GridPane layoutGrid = new GridPane();
+        layoutGrid.setVgap(10);
+        layoutGrid.setHgap(10);
+        layoutGrid.setPadding(new Insets(5, 5, 5, 5));
+
+        //canvas
+        Canvas logo = new Canvas(300, 50);
+        GraphicsContext graphicsContext = logo.getGraphicsContext2D();
+        drawLogo(graphicsContext);
+        layoutGrid.add(logo, 0, 0, 2, 1);
+
+        layoutGrid.add(new Label("EUR"), 1, 1);
+
+        TextField eurosTextField = new TextField("0.0");
+        layoutGrid.add(eurosTextField, 2, 1);
+
+        ChoiceBox<String> currencyChoiceBox = new ChoiceBox<>(FXCollections.observableArrayList(
                 "USD",
                 "GBP",
                 "SEK",
                 "RUB"
         ));
-        cb.setValue("USD");
-        grid.add(cb, 1, 2);
-        TextField otherUnit = new TextField();
-        grid.add(otherUnit, 2, 2);
+        currencyChoiceBox.setValue("USD");
+        layoutGrid.add(currencyChoiceBox, 1, 2);
+
+        TextField otherCurrencyTextField = new TextField();
+        layoutGrid.add(otherCurrencyTextField, 2, 2);
 
         //events
-        euros.setOnKeyReleased(event -> {
+        eurosTextField.setOnKeyReleased(event -> {
             try {
-                if(euros.getText().equals("")){
-                    otherUnit.setText("0");
+                if(eurosTextField.getText().equals("")){
+                    otherCurrencyTextField.setText("0");
                 }else {
-                    otherUnit.setText(String.valueOf((Double.parseDouble(euros.getText())) * currencyCoef(cb.getValue())));
+                    otherCurrencyTextField.setText(String.valueOf((Double.parseDouble(eurosTextField.getText())) * currencyCoef(currencyChoiceBox.getValue())));
                 }
             }catch(Exception e){
-                otherUnit.setText("ERROR");
+                otherCurrencyTextField.setText("ERROR");
             }
         });
 
-        Scene scene = new Scene(grid);
+        Scene scene = new Scene(layoutGrid);
 
         primaryStage.setTitle("EuroCalc");
         primaryStage.setResizable(true);
@@ -65,6 +76,15 @@ public class ValuutaCalc extends Application {
         coefs.put("SEK",9.27392142);
         coefs.put("RUB",76.3518092);
         return coefs.get(currency);
+    }
+
+    private void drawLogo(GraphicsContext graphicsContext){
+        graphicsContext.setFill(Color.AQUA);
+        graphicsContext.fillOval(10, 10, 30, 30);
+        graphicsContext.setFill(Color.BLACK);
+        graphicsContext.fillRect(50, 10, 30, 30);
+        graphicsContext.setFill(Color.CHOCOLATE);
+        graphicsContext.fillRoundRect(90, 10, 30, 30, 10, 10);
     }
 
     public static void main(String[] args) {
