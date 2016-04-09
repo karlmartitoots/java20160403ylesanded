@@ -1,10 +1,10 @@
-package FileServer;
+package fileserver;
 
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 
-public class EchoClient {
+public class FileServerClient {
 
     public static void main(String[] args) throws IOException {
 
@@ -14,8 +14,8 @@ public class EchoClient {
                     DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());//output socketile
                     BufferedReader standardInputStream = new BufferedReader(new InputStreamReader(System.in))) {
                 String line;
+                line = standardInputStream.readLine();
                 while (true) {
-                    line = standardInputStream.readLine();
                     outputStream.writeUTF(line);
                     System.out.println(inputStream.readUTF());
                 }

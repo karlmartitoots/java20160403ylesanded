@@ -1,4 +1,4 @@
-package JavaFXKalkulaator;
+package javaFXKalkulaator;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
