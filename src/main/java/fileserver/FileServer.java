@@ -1,11 +1,10 @@
 package fileserver;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.EOFException;
-import java.io.IOException;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileServer {
 
@@ -17,11 +16,32 @@ public class FileServer {
                 Socket incoming = serverSocket.accept();
                 new Thread(() -> {
                     try (
-                            DataOutputStream output = new DataOutputStream(incoming.getOutputStream());
                             DataInputStream input = new DataInputStream(incoming.getInputStream())) {
                         String resourceName = input.readUTF();
-                        //Object file = getClass().getClassLoader().getResourceAsStream(resourceName);
 
+                        try(
+                                DataOutputStream output = new DataOutputStream(incoming.getOutputStream());
+                                InputStream resourceInputStream = FileServer.class.getClassLoader().getResourceAsStream(resourceName)){
+
+                            if(resourceInputStream == null){
+                                incoming.close();
+                                Thread.currentThread().interrupt();
+                                return;
+                            }
+
+                            int read;
+                            int fileSize = 0;
+                            byte[] byteChunk = new byte[1024];
+
+                            ByteArrayOutputStream deezBytes = new ByteArrayOutputStream();
+                            while((read = resourceInputStream.read(byteChunk, 0, 1024)) != -1){
+                                fileSize += read;
+                                deezBytes.write(byteChunk, 0, read);
+                            }
+
+                            output.writeInt(fileSize);
+                            deezBytes.writeTo(output);
+                        }
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     } finally {
