@@ -19,11 +19,9 @@ public class FileServer {
                     try (
                             DataOutputStream output = new DataOutputStream(incoming.getOutputStream());
                             DataInputStream input = new DataInputStream(incoming.getInputStream())) {
-                        while (true) {
-                            String info = "";
-                            info = input.readUTF();
-                            output.writeUTF(info);
-                        }
+                        String resourceName = input.readUTF();
+                        //Object file = getClass().getClassLoader().getResourceAsStream(resourceName);
+
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     } finally {
