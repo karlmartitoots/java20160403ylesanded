@@ -1,3 +1,3 @@
-# java20160403ylesanded
-Tähtaeg 3.04
+# Objektorienteeritud programmeerimine 
+Kodune ülesanne 2016-04-03
 
