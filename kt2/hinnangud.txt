@@ -1,0 +1,9 @@
+Hinnang kontrolltööle:
+Autor: Ülli Õpilane
+sisu:
+public class Test {
+    public static void main(String[] args){
+        System.out.println("Töötab");
+    }
+}
+Hinne: 9.0 ja kommentaar: fjaio

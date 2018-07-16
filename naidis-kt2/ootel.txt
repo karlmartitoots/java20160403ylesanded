@@ -1,0 +1,5 @@
+Ordi;tavatöö|2016-04-21T12:56:11
+Lenovo;tavatöö|2016-04-21T12:12:12
+ML;kiirtöö;monitoriga|2016-05-05T00:32:11.333
+lenovo;kiirtöö|2016-05-05T01:43:53.086
+lenovo;kiirtöö;monitoriga|2016-05-05T01:46:37.931
