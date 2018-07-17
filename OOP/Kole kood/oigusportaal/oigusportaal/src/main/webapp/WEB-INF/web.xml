@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>LawPortal</display-name>
+  <welcome-file-list>
+    <welcome-file>Main.jsp</welcome-file>
+  </welcome-file-list>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>pagesWithUnrestrictedAccess</web-resource-name>
+      <description>No Description</description>
+      <url-pattern>*.jsp</url-pattern>
+    </web-resource-collection>
+    <user-data-constraint>
+      <description>No Description</description>
+      <transport-guarantee>NONE</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <form-login-config>
+      <form-login-page>/Login.jsp</form-login-page>
+      <form-error-page>/invalidLogin.jsp</form-error-page>
+    </form-login-config>
+  </login-config>
+  <servlet>
+    <description> Search Servlet </description>
+    <display-name>SearchServlet</display-name>
+    <servlet-name>SearchServlet</servlet-name>
+    <servlet-class>main.search.SearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchServlet</servlet-name>
+    <url-pattern>/SearchServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description> Field Search Servlet </description>
+    <display-name>FieldSearchServlet</display-name>
+    <servlet-name>FieldSearchServlet</servlet-name>
+    <servlet-class>main.search.FieldSearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FieldSearchServlet</servlet-name>
+    <url-pattern>/FieldSearchServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Bureau Registration Servlet</description>
+    <display-name>BureauRegistrationServlet</display-name>
+    <servlet-name>BureauRegistrationServlet</servlet-name>
+    <servlet-class>main.registerLogin.BureauRegistrationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BureauRegistrationServlet</servlet-name>
+    <url-pattern>/BureauRegistrationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Bureau Login Servlet</description>
+    <display-name>BureauLoginServlet</display-name>
+    <servlet-name>BureauLoginServlet</servlet-name>
+    <servlet-class>main.registerLogin.BureauLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BureauLoginServlet</servlet-name>
+    <url-pattern>/BureauLoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Activation Servlet</description>
+    <display-name>ActivationServlet</display-name>
+    <servlet-name>ActivationServlet</servlet-name>
+    <servlet-class>main.bureauActivation.ActivationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ActivationServlet</servlet-name>
+    <url-pattern>/ActivationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Login Servlet</description>
+    <display-name>LoginServlet</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>main.login.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Bureau Edit Servlet</description>
+    <display-name>BureauEditServlet</display-name>
+    <servlet-name>BureauEditServlet</servlet-name>
+    <servlet-class>main.bureauEdit.BureauEditServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BureauEditServlet</servlet-name>
+    <url-pattern>/BureauEditServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Bureau Profile Servlet</description>
+    <display-name>BureauProfileServlet</display-name>
+    <servlet-name>BureauProfileServlet</servlet-name>
+    <servlet-class>main.bureauEdit.BureauProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BureauProfileServlet</servlet-name>
+    <url-pattern>/BureauProfileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Admin Servlet</description>
+    <display-name>AdminServlet</display-name>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>main.login.AdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/AdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Lost Pass Servlet</description>
+    <display-name>LostPassServlet</display-name>
+    <servlet-name>LostPassServlet</servlet-name>
+    <servlet-class>main.login.LostPassServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LostPassServlet</servlet-name>
+    <url-pattern>/LostPassServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Lawyer Profile Servlet</description>
+    <display-name>LawyerProfileServlet</display-name>
+    <servlet-name>LawyerProfileServlet</servlet-name>
+    <servlet-class>main.bureauEdit.LawyerProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LawyerProfileServlet</servlet-name>
+    <url-pattern>/LawyerProfileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Lawyer Edit Servlet</description>
+    <display-name>LawyerEditServlet</display-name>
+    <servlet-name>LawyerEditServlet</servlet-name>
+    <servlet-class>main.bureauEdit.LawyerEditServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LawyerEditServlet</servlet-name>
+    <url-pattern>/LawyerEditServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Lawyer Delete Servlet</description>
+    <display-name>LawyerDeleteServlet</display-name>
+    <servlet-name>LawyerDeleteServlet</servlet-name>
+    <servlet-class>main.bureauEdit.LawyerDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LawyerDeleteServlet</servlet-name>
+    <url-pattern>/LawyerDeleteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Lawyer Add Servlet</description>
+    <display-name>LawyerAddServlet</display-name>
+    <servlet-name>LawyerAddServlet</servlet-name>
+    <servlet-class>main.bureauEdit.LawyerAddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LawyerAddServlet</servlet-name>
+    <url-pattern>/LawyerAddServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Story Profile Servlet</description>
+    <display-name>StoryProfileServlet</display-name>
+    <servlet-name>StoryProfileServlet</servlet-name>
+    <servlet-class>main.bureauEdit.StoryProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StoryProfileServlet</servlet-name>
+    <url-pattern>/StoryProfileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Story Edit Servlet</description>
+    <display-name>StoryEditServlet</display-name>
+    <servlet-name>StoryEditServlet</servlet-name>
+    <servlet-class>main.bureauEdit.StoryEditServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StoryEditServlet</servlet-name>
+    <url-pattern>/StoryEditServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Story Delete Servlet</description>
+    <display-name>StoryDeleteServlet</display-name>
+    <servlet-name>StoryDeleteServlet</servlet-name>
+    <servlet-class>main.bureauEdit.StoryDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StoryDeleteServlet</servlet-name>
+    <url-pattern>/StoryDeleteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Story Add Servlet</description>
+    <display-name>StoryAddServlet</display-name>
+    <servlet-name>StoryAddServlet</servlet-name>
+    <servlet-class>main.bureauEdit.StoryAddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StoryAddServlet</servlet-name>
+    <url-pattern>/StoryAddServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description>Story Init Servlet</description>
+    <display-name>StoryInitServlet</display-name>
+    <servlet-name>StoryInitServlet</servlet-name>
+    <servlet-class>main.bureauEdit.StoryInitServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StoryInitServlet</servlet-name>
+    <url-pattern>/StoryInitServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Image Upload Servlet</description>
+    <display-name>ImageUploadServlet</display-name>
+    <servlet-name>ImageUploadServlet</servlet-name>
+    <servlet-class>main.fileUpload.ImageUploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ImageUploadServlet</servlet-name>
+    <url-pattern>/ImageUploadServlet</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <description>Bureau View Servlet</description>
+    <display-name>BureauViewServlet</display-name>
+    <servlet-name>BureauViewServlet</servlet-name>
+    <servlet-class>main.bureauView.BureauViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BureauViewServlet</servlet-name>
+    <url-pattern>/BureauViewServlet</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <description>Delete Bureau Servlet</description>
+    <display-name>DeleteBureauServlet</display-name>
+    <servlet-name>DeleteBureauServlet</servlet-name>
+    <servlet-class>main.admin.DeleteBureauServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteBureauServlet</servlet-name>
+    <url-pattern>/DeleteBureauServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description>Activate InActivate Servlet</description>
+    <display-name>ActivateInActivateServlet</display-name>
+    <servlet-name>ActivateInActivateServlet</servlet-name>
+    <servlet-class>main.admin.ActivateInActivateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ActivateInActivateServlet</servlet-name>
+    <url-pattern>/ActivateInActivateServlet</url-pattern>
+  </servlet-mapping>
+</web-app>

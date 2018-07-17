@@ -1,0 +1,10 @@
+jooga,15,5
+bodybalance,20,10
+Liina Lihas
+zumba,5,4.50
+Olev Tugev
+powerbody,3,15
+bodypump,4,10
+yogafunc,2,25
+stripdance,10,7.50
+Harli Harjutus

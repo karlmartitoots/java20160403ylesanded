@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/craps"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.taavi.testapplication.MainActivity">
+
+    <View android:id="@+id/rectangle_at_the_top"
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:layout_alignParentBottom="true"
+        android:background="#DDDDDD"
+        android:visibility="visible"/>
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/betAmountSeekBar"
+        android:indeterminate="false"
+        android:background="#030303"
+        android:thumbTint="#ffffff"
+        android:layout_above="@+id/rectangle_at_the_top"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="23dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0.00"
+        android:id="@+id/betAmountTextView"
+        android:layout_marginStart="27dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/betTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="100.00"
+        android:id="@+id/totalAmountTextView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/betAmountSeekBar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/total"
+        android:id="@+id/totalTextView"
+        android:layout_marginEnd="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/totalAmountTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/bet"
+        android:id="@+id/betTextView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lower"
+        android:id="@+id/lowerButton"
+        android:background="@drawable/button_bg_active"
+        android:layout_alignTop="@+id/equalButton"
+        android:layout_alignParentStart="true"
+        android:onClick="onClickLowerButton"
+        android:clickable="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/equal"
+        android:id="@+id/equalButton"
+        android:background="@drawable/button_bg_disabled"
+        android:layout_alignBaseline="@+id/higherButton"
+        android:layout_alignBottom="@+id/higherButton"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickEqualButton"
+        android:clickable="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/higher"
+        android:id="@+id/higherButton"
+        android:background="@drawable/button_bg_active"
+        android:layout_above="@+id/betAmountSeekBar"
+        android:layout_alignEnd="@+id/betAmountSeekBar"
+        android:layout_marginBottom="46dp"
+        android:onClick="onClickHigherButton"
+        android:clickable="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dice1ImageView"
+        android:src="@drawable/dice3"
+        android:background="#000000"
+        android:padding="3dp"
+        android:layout_marginTop="94dp"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/equalButton" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dice2ImageView"
+        android:src="@drawable/dice4"
+        android:layout_alignTop="@+id/dice1ImageView"
+        android:layout_toEndOf="@+id/equalButton"
+        android:background="#000000"
+        android:padding="3dp"/>
+
+</RelativeLayout>
